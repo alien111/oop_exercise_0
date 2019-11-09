@@ -1,5 +1,5 @@
-#ifndef D_TRIANGLE_H_
-#define D_TRIANGLE_H_ 1
+#ifndef D_TRAPEZOID_H_
+#define D_TRAPEZOID_H_ 1
 
 #include <algorithm>
 #include <iostream>
@@ -16,7 +16,7 @@ struct trapezoid {
 	vertex<double>  center() const;
 
 	double area() const;
-	void print(std::ostream& os) const;
+	void print() const;
 
 };
 
@@ -59,18 +59,19 @@ double trapezoid<T>::area() const {
     double b = vertices[2].x - vertices[1].x;
     double c = vertices[1].x * vertices[2].y - vertices[2].x * vertices[1].y;
     double height = (std::abs(a * vertices[0].x + b * vertices[0].y + c) / sqrt(a * a + b * b));
-    return (Vector(vertices[0], vertices[1]).length() + Vector(vertices[2], vertices[3]).length()) * height / 2;
+    
+    Vector< vertex<T> > v1(vertices[0], vertices[1]);
+    Vector< vertex<T> > v2(vertices[2], vertices[3]);
+    
+    return (v1.length() + v2.length()) * height / 2;
 	
 }
 
 template<class T>
-void trapezoid<T>::print(std::ostream& os) const {
-	for(int i = 0; i < 4; ++i) {
-		os << '[' << vertices[i] << ']';
-		if(i + 1 != 4){
-			os << ' ';
-		}
-	}
+void trapezoid<T>::print() const {
+	
+	std::cout << vertices[0] << vertices[1] << vertices[2] << vertices[3] << '\n';
+	
 }
 
 

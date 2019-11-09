@@ -12,7 +12,7 @@ struct Vector {
 	double length() const;
 	double x;
 	double y;
-	friend double operator* (Vector a, Vector b) ;
+	double operator* (Vector b) ;
 	bool operator== (Vector b);
 };
 
@@ -28,8 +28,8 @@ double Vector<T>::length() const{
 }
 
 template<class T>
-double operator* (Vector<T> a, Vector<T> b) {
-	return a.x * b.x + a.y * b.y;
+double Vector<T>::operator* (Vector<T> b) {
+	return x * b.x + y * b.y;
 }
 
 template<class T>

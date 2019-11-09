@@ -16,7 +16,7 @@ struct rectangle {
 	vertex<double> center() const;
 
 	double area() const;
-	void print(std::ostream& os) const;
+	void print() const;
 
 };
 
@@ -64,13 +64,10 @@ double rectangle<T>::area() const {
 }
 
 template<class T>
-void rectangle<T>::print(std::ostream& os) const {
-	for(int i = 0; i < 4; ++i){
-		os << '[' << vertices[i] << ']';
-		if(i + 1 != 4){
-			os << ' ';
-		}
-	}
+void rectangle<T>::print() const {
+	
+	std::cout << vertices[0] << vertices[1] << vertices[2] << vertices[3] << '\n';
+
 }
 
 template<class T>

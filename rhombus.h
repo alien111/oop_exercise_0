@@ -1,5 +1,5 @@
-#ifndef D_TRIANGLE_H_
-#define D_TRIANGLE_H_ 1
+#ifndef D_RHOMBUS_H_
+#define D_RHOMBUS_H_ 1
 
 #include <algorithm>
 #include <iostream>
@@ -16,7 +16,7 @@ struct rhombus {
 	vertex<double>  center() const;
 
 	double area() const;
-	void print(std::ostream& os) const;
+	void print() const;
 
 };
 
@@ -67,13 +67,9 @@ double rhombus<T>::area() const {
 }
 
 template<class T>
-void rhombus<T>::print(std::ostream& os) const {
-	for(int i = 0; i < 4; ++i){
-		os << '[' << vertices[i] << ']';
-		if(i + 1 != 4){
-			os << ' ';
-		}
-	}
+void rhombus<T>::print() const {
+	
+	std::cout << vertices[0] << vertices[1] << vertices[2] << vertices[3] << '\n';
 }
 
 template<class T>
